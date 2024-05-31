@@ -1,0 +1,131 @@
+style
+body, html {
+  height: 100%;
+  margin: 0;
+  font: 400 15px/1.8 "Lato", sans-serif;
+  color: #777;
+}
+
+.bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4, .bgimg-5{
+  position: relative;
+  opacity: 0.65;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.bgimg-1 {
+  background-image: url("shuttle.jpg");
+  min-height: 100%;
+}
+
+.bgimg-2 {
+  background-image: url("shuttle2.jpg");
+  min-height: 400px;
+}
+
+.bgimg-3 {
+  background-image: url("Tele.jpg");
+  min-height: 400px
+}
+.bgimg-4 {
+  background-image: url("sat.jpg");
+  min-height: 400px
+}
+.bgimg-5 {
+  background-image: url("Tele.jpg");
+  min-height: 400px
+}
+.bgimg-6 {
+  background-image: url("Tele.jpg");
+  min-height: 400px
+}
+.caption {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+}
+
+.caption span.border {
+  background-color: #111;
+  color: #fff;
+  padding: 18px;
+  font-size: 25px;
+  letter-spacing: 10px;
+}
+
+h3 {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font: 20px "Lato", sans-serif;
+  color: #111;
+  }
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  padding: 0 10px;
+}
+.navbar {
+  display: flex;
+  padding: 22px 0;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+.navbar .hamburger-btn {
+  display: none;
+  color: black;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+.navbar .logo {
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.navbar .logo img {
+  width: 40px;
+  border-radius: 50%;
+}
+.navbar .logo h2 {
+  color: black;
+  font-weight: 600;
+  font-size: 1.7rem;
+}
+.navbar .links {
+  display: flex;
+  gap: 35px;
+  list-style: none;
+  align-items: center;
+}
+.navbar .close-btn {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  display: none;
+  color: #000;
+  cursor: pointer;
+}
+.navbar .links a {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.1s ease;
+}
+.navbar .links a:hover {
+  color: #19e8ff;
+}
+
+
+

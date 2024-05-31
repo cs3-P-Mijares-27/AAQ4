@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>AstroInformatics Login</title>
+  <link rel="stylesheet" href="login.css">
+  <link rel="script" href="login.js">
+</head>
+<body>
+ <header>
+  <nav class="navbar"> <span class="hamburger-btn material-symbols-rounded">menu</span> <a href="#" class="logo"> <img src="../../rocket-regular-24.png" alt="logo">
+    <h2>AstroInformatics</h2>
+    </a>
+    <ul class="links">
+		<span class="close-btn material-symbols-rounded">close</span>
+    </ul>
+  </nav>
+</header>
+  <div class="wrapper">
+    <form action="#">
+      <h2>Login</h2>
+        <div class="input-field">
+        <input type="text" required>
+        <label>Enter your email</label>
+      </div>
+      <div class="input-field">
+        <input type="password" required>
+        <label>Enter your password</label>
+      </div>
+      <div class="forget">
+        <label for="remember">
+          <input type="checkbox" id="remember">
+          <p>Remember me</p>
+        </label>
+        <a href="#">Forgot password?</a>
+      </div>
+      <button type="submit">Log In</button>
+      <div class="register">
+        <p>Don't have an account? <a href="signup.html">Register</a></p>
+      </div>
+    </form>
+  </div>
+  <script>
+	 document.getElementById("login-form").addEventListener("submit", function(event) {
+  event.preventDefault();
+  var email = document.getElementById("login-email").value;
+  var password = document.getElementById("login-password").value;
+  var storedData = localStorage.getItem("userData");
+  if (!storedData) {
+    alert("No user found. Please register first.");
+    return;
+  }
+  var userData = JSON.parse(storedData);
+  if (email === userData.email && password === userData.password) {
+    alert("Login successful!");
+	window.location.href = "Homepage.html";
+  } else {
+    alert("Incorrect email or password. Please try again.");
+  }
+});
+
+	</script>
+</body>
+</html>

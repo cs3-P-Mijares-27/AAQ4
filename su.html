@@ -1,0 +1,78 @@
+<!DOCTYPE html> //this is the signup page in where your data will be stored.
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AstroInformatics Signup</title>
+<link rel="stylesheet" href="signup.css">
+</head>
+<body>
+<header>
+  <nav class="navbar">
+    <span class="hamburger-btn material-symbols-rounded">menu</span>
+    <a href="#" class="logo">
+      <img src="../../rocket-regular-24.png" alt="logo">
+      <h2>AstroInformatics</h2>
+    </a>
+  </nav>
+</header>
+<div class="wrapper">
+  <form id="signup-form">
+    <h2>Signup</h2>
+    <div class="input-field">
+      <input type="email" id="email" required>
+      <label>Enter your email</label>
+    </div>
+    <div class="input-field">
+      <input type="password" id="password" required>
+      <label>Enter your password</label>
+    </div>
+    <div class="input-field">
+      <input type="password" id="confirm-password" required>
+      <label>Confirm your password</label>
+    </div>
+    <button type="submit">Sign up</button>
+    <div class="register">
+      <p>Already have an account? <a href="login.html">Login</a></p>
+    </div>
+  </form>
+</div>
+<script>
+  document.getElementById('signup-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirm-password').value;
+
+    if (password !== confirmPassword) {
+      alert('Passwords do not match');
+      return;
+    }
+
+    console.log('Submitting signup form', { email, password });
+
+    try {
+      const response = await fetch('http://localhost:3000/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username: email, password: password }),
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        alert('Registration successful, please log in');
+        window.location.href = 'login.html';
+      } else {
+        alert('Error registering user: ' + result.message);
+        console.error('Error response:', result);
+      }
+    } catch (error) {
+      console.error('Error during fetch:', error);
+      alert('Error registering user, please try again');
+    }
+  });
+</script>
+</body>
+</html>
